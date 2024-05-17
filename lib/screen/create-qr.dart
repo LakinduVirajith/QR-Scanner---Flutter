@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:qr_scanner/screen/home.dart';
 import 'package:qr_scanner/widget/normal_button.dart';
 import 'package:qr_scanner/widget/normal_input.dart';
 

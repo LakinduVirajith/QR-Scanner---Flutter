@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qr_scanner/screen/create-qr.dart';
+import 'package:qr_scanner/screen/scan-qr.dart';
 import 'package:qr_scanner/widget/normal_button.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -17,7 +18,12 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Future<void> _scan() async {}
+  Future<void> _scan() async {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const ScanQRScreen()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
