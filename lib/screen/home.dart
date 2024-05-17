@@ -16,7 +16,22 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(),
+        child: Container(
+          decoration: const BoxDecoration(
+            color: Colors.white,
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(48.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                NormalButton(buttonText: 'CREATE QR', onPressed: _create),
+                const SizedBox(height: 24.0),
+                NormalButton(buttonText: 'SCAN QR', onPressed: _scan)
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
