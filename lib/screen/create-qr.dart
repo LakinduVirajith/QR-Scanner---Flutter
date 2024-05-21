@@ -17,10 +17,12 @@ class CreateQRScreen extends StatefulWidget {
 }
 
 class _CreateQRScreenState extends State<CreateQRScreen> {
+  final TextEditingController _ticketNumberController = TextEditingController();
   final TextEditingController _userNameController = TextEditingController();
   final TextEditingController _mobileNumberController = TextEditingController();
   // final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   String? _qrData;
+  String? ticketNumber;
   String? userName;
   String? mobileNumber;
 
@@ -36,8 +38,10 @@ class _CreateQRScreenState extends State<CreateQRScreen> {
       // NEED TO BE UPLOAD QR AND ADD USER DETAILS
       // await _firestore.collection('QRCode').add({'data': _qrData});
 
+      ticketNumber = _ticketNumberController.text;
       userName = _userNameController.text;
       mobileNumber = _mobileNumberController.text;
+      _ticketNumberController.clear();
       _userNameController.clear();
       _mobileNumberController.clear();
     } else {
@@ -67,6 +71,7 @@ class _CreateQRScreenState extends State<CreateQRScreen> {
       const SnackBar(content: Text('QR Code saved to gallery')),
     );
   }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -82,6 +87,12 @@ class _CreateQRScreenState extends State<CreateQRScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                NumberInput(
+                  placeholderText: 'Ticket Number',
+                  iconPath: 'assets/icons/mobile.svg',
+                  numberController: _ticketNumberController,
+                ),
+                const SizedBox(height: 24.0),
                 NormalInput(
                   placeholderText: 'User Name',
                   iconPath: 'assets/icons/user.svg',
